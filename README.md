@@ -59,12 +59,12 @@
     8. 將原圖各邊的量減去此時還剩下的邊的量 FLow = Capacity - Residual
     9. 得出阻塞流/最大流
 
-  - 時間複雜度：`O(f * E)` f:最大流大小, E:邊數
+  - Ford-Fulkerson 時間複雜度： O(f * E) f: 最大流大小 E: 邊數 </br>
     Ford-Fulkerson雖然能找到最佳解，但其效率很差，而且如果遇到例如像下面這樣的worst case情況，就會因為反向邊不斷循環而增加不必要的運算，像是下面就會以每次只有1的流量的速度來回跑。</br>
     <img height='250px' alt='Ford-Fulkerson worst case' src='https://user-images.githubusercontent.com/62165222/196353865-5507883b-5759-4017-88e1-978c246ef897.png'/>
 
-  - 優化版的Edmonds-Karp Algorithm：複雜度：`O(VE^2^)`
-    Edmonds-Karp Algorithm與Ford-Fulkerson Algorithm唯一的差別，只有在一開始決定要走哪條路徑時，Edmonds-Karp規定一定要選擇最短路徑。因此實作上在執行時會先跑一個DFS
+  - 優化版的Edmonds-Karp Algorithm 時間複雜度：O( $VE^2$ ) V:節點數 E: 邊數</br>
+    Edmonds-Karp Algorithm與Ford-Fulkerson Algorithm唯一的差別，只有在一開始決定要走哪條路徑時，Edmonds-Karp規定一定要選擇最短路徑。
 
 ### 2. Dinic’s
   - level graph 定義：將節點分層，每層之間都必須是走一步就能到達的點，level graph只能按順序向下走，不可以回頭，同階層的點也不能通行。例如下圖的階層1的兩個點之間如果本來有連通，則要將其去除。</br>
@@ -77,10 +77,10 @@
     4. 在圖上放上阻塞流的路徑的反向邊。
     5. 反覆進行上述步驟，直到level graph已經找不到阻塞流
     7. 將留下的residual圖此去原圖，得到最大流
-  - 時間複雜度：`O(E^2^)`
+  - 時間複雜度：O( $EV^2$ ) V:節點數 E: 邊數 </br>
 
 ## Minimun Cut Problem 最小割問題
-   常常與上面的maximum flow一起被討論的另一個問題是「最小割問題」，這個問題是想要嘗試找出一個，能切斷所有從起點到終點的可能路徑的cut。</br>
+   常常與上面的maximum flow一起被討論的另一個問題是「最小割問題」。這個問題是想要嘗試找出只要用一刀，就能夠切斷從起點到終點的所有可能路徑的cut。也就是只要切斷後，就無法再從起點走到終點了。</br>
     <img height='250px' alt='min-cut' src='https://user-images.githubusercontent.com/62165222/196377134-0a616bb2-a9f7-4b95-9150-094d14e0491b.png'/>
   - 定義：
     - S-T Cut定義: 把圖切成S子集合(包含s)和T子集合(包和t)兩部份，只要切這一刀即所有管道就都不通了
