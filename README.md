@@ -18,11 +18,11 @@
 <img height='250px' alt='exlain2' src='https://user-images.githubusercontent.com/62165222/196347239-0bde2037-b8fd-4a96-a408-5a81167a5d8e.png'/>
 </div>
 
-  - s 起點 (source): 以上面的例子來說就是城鎮A
-  - t 終點 (sink): 以上面的例子來說就是城鎮B
-  - capacity 容量: 每條路的最大車流
-  - residual 剩餘容量 = 路還可以乘載多少車流
-  - augmenting path： 簡單路徑，不能有回圈
+  - s 起點 (source)
+  - t 終點 (sink)
+  - capacity 容量: 每條路徑最大可以容納的流量
+  - residual 剩餘容量: 這條路還可以乘載多少流量
+  - augmenting path： 簡單路徑，不能有迴圈
   - bottleneck capacity 瓶頸容量：一個簡單路徑中管徑大小最小的邊
   - saturated 飽和：當某個邊剩餘容量已經變為零
   - block flow 阻塞流：當已沒有流可以從s到t，此時所有流向終點、或者流出起點的流量總和（兩者會相等）即為阻塞流，maximum flow也是其中一種
